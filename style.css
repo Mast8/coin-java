@@ -43,7 +43,7 @@ footer {
     transition: transform 0.3s;
 }
 
-#result {
+#result , .results {
     text-align: center;
     font-weight: 700;
     color: #e1b530;

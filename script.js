@@ -30,10 +30,10 @@ function flipCoin (){
     }
     let total = heads +tails;
 
-    tossResult.innerHTML = `It's ${result}. Heads: ${tails} Tails: ${heads} total ${total} `;
-    headsE.innerHTML = `${heads} `;
-    tailsE.innerHTML = `${tails} `;
-    totalE.innerHTML = `${total} `; 
+    tossResult.innerHTML = `It's ${result} `;
+    headsE.innerHTML = `Heads: ${heads} `;
+    tailsE.innerHTML = `Tails: ${tails} `;
+    totalE.innerHTML = `Total: ${total} `; 
     flip.innerHTML = `<button id="flip-again-btn">Want to Flip Again?</button>`
     flip.addEventListener("click", flipCoin); 
 }
