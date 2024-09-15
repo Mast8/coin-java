@@ -29,10 +29,14 @@ function flipCoin (){
         result = "Heads";
     }
     let total = heads +tails;
+    //create update html function
+    //add stats for tails and heads
+    let tailsPerc = Math.round(tails/total * 100);
+    let headsPerc = Math.round(heads/total * 100);
 
     tossResult.innerHTML = `It's ${result} `;
-    headsE.innerHTML = `Heads: ${heads} `;
-    tailsE.innerHTML = `Tails: ${tails} `;
+    headsE.innerHTML = `Heads: ${heads} ${headsPerc}%`;
+    tailsE.innerHTML = `Tails: ${tails}  ${tailsPerc}%`;
     totalE.innerHTML = `Total: ${total} `; 
     flip.innerHTML = `<button id="flip-again-btn">Want to Flip Again?</button>`
     flip.addEventListener("click", flipCoin); 
