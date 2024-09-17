@@ -1,5 +1,6 @@
 let coin = document.getElementById("flip-coin");
 let flip = document.getElementById("flip-again");
+let resetEl = document.getElementById("reset");
 let tossResult = document.getElementById("result");
 
 
@@ -8,17 +9,18 @@ coin.addEventListener("click", function () {
     flipCoin();
 });
 
-let tails =0  ;                                                 
-let heads = 0;
 
+let tails =0;                                                 
+ let heads = 0;
 function flipCoin (){
+    
     let tailsE = document.getElementById("tail");
     let headsE = document.getElementById("head");
     let totalE = document.getElementById("total");
     let repetions = document.getElementById("coinFlips").value;
 
     let result;
-    console.log(repetions);
+    console.log(tails);
     for (let i = 0; i < repetions ; i++) {
     //for (let i = 0; i < 10 ; i++) {
         let toss = Math.floor(Math.random() * 2);
@@ -33,16 +35,27 @@ function flipCoin (){
             result = "Heads";
         }
         let total = heads +tails;
-        //create update html function
-        //add stats for tails and heads
+       
+        
         let tailsPerc = Math.round(tails/total * 100);
         let headsPerc = Math.round(heads/total * 100);
 
-        tossResult.innerHTML = `It's ${result} `;
+        if(repetions == 1 )
+            tossResult.innerHTML = `It's ${result} `;
+        else tossResult.innerHTML = ``;
         headsE.innerHTML = `Heads: ${heads} ${headsPerc}%`;
         tailsE.innerHTML = `Tails: ${tails}  ${tailsPerc}%`;
         totalE.innerHTML = `Total: ${total} `; 
-        flip.innerHTML = `<button id="flip-again-btn">Want to Flip Again?</button>`
+        flip.innerHTML = `<button id="flip-again-btn">Want to Flip Again?</button>`;
+        resetEl.innerHTML = `<button id="reset-btn"  onclick="reset()" >Reset</button>`;
         flip.addEventListener("click", flipCoin); 
     }
+}
+
+function reset () {
+    let tails = 0;                                                 
+    let heads = 0;
+    console.log(tails);
+
+    //flipCoin();
 }
