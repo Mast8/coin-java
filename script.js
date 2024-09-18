@@ -3,26 +3,29 @@ let flip = document.getElementById("flip-again");
 let resetEl = document.getElementById("reset");
 let tossResult = document.getElementById("result");
 
+let stats = document.getElementById("stats");
 
 coin.addEventListener("click", function () {
    
     flipCoin();
+    reset()
 });
 
 
-let tails =0;                                                 
+ let tails = 0;                                                 
  let heads = 0;
-function flipCoin (){
-    
+
+function flipCoin ( ){
+   
     let tailsE = document.getElementById("tail");
     let headsE = document.getElementById("head");
     let totalE = document.getElementById("total");
     let repetions = document.getElementById("coinFlips").value;
 
     let result;
-    console.log(tails);
+    //console.log(tails);
     for (let i = 0; i < repetions ; i++) {
-    //for (let i = 0; i < 10 ; i++) {
+   
         let toss = Math.floor(Math.random() * 2);
         
         if (toss == 1) {
@@ -52,10 +55,9 @@ function flipCoin (){
     }
 }
 
+//implement statistic graphs
 function reset () {
-    let tails = 0;                                                 
-    let heads = 0;
-    console.log(tails);
-
-    //flipCoin();
+    tails = 0;                                                 
+    heads = 0;
+    //stats.innerHTML = ``;
 }
