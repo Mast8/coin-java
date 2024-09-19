@@ -52,7 +52,9 @@ function flipCoin ( ){
         flip.innerHTML = `<button id="flip-again-btn">Want to Flip Again?</button>`;
         resetEl.innerHTML = `<button id="reset-btn"  onclick="reset()" >Reset</button>`;
         flip.addEventListener("click", flipCoin); 
+        
     }
+    barChart.render();
 }
 
 //implement statistic graphs
@@ -61,3 +63,50 @@ function reset () {
     heads = 0;
     //stats.innerHTML = ``;
 }
+
+
+//charts
+//let wow = 20;
+const barChartOptions = {
+    
+    series: [
+      {
+        data: [tails, 5],
+      },
+    ],
+    chart: {
+      type: 'bar',
+      height: 350,
+      toolbar: {
+        show: false,
+      },
+    },
+    colors: ['#246dec', '#cc3c43', '#367952', '#f5b74f', '#4f35a1'],
+    plotOptions: {
+      bar: {
+        distributed: true,
+        borderRadius: 4,
+        horizontal: false,
+        columnWidth: '40%',
+      },
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    legend: {
+      show: false,
+    },
+    xaxis: {
+      categories: ['Heads', 'Tails'],
+    },
+    yaxis: {
+      
+    },
+  };
+  
+  const barChart = new ApexCharts(
+    document.querySelector('#bar-chart'),
+    barChartOptions
+  );
+
+  barChart.render();
