@@ -50,11 +50,11 @@ function flipCoin ( ){
         tailsE.innerHTML = `Tails: ${tails}  ${tailsPerc}%`;
         totalE.innerHTML = `Total: ${total} `; 
         flip.innerHTML = `<button id="flip-again-btn">Want to Flip Again?</button>`;
-        resetEl.innerHTML = `<button id="reset-btn"  onclick="reset()" >Reset</button>`;
+       
         flip.addEventListener("click", flipCoin); 
         
     }
-    barChart.render();
+    graph(heads, tails);
 }
 
 //implement statistic graphs
@@ -67,11 +67,14 @@ function reset () {
 
 //charts
 //let wow = 20;
-const barChartOptions = {
+function graph(heads, tails){
+
+
+  const barChartOptions = {
     
     series: [
       {
-        data: [tails, 5],
+        data: [heads, tails],
       },
     ],
     chart: {
@@ -103,10 +106,10 @@ const barChartOptions = {
       
     },
   };
-  
   const barChart = new ApexCharts(
     document.querySelector('#bar-chart'),
     barChartOptions
   );
 
   barChart.render();
+}
