@@ -3,12 +3,15 @@ let flip = document.getElementById("flip-again");
 let resetEl = document.getElementById("reset");
 let tossResult = document.getElementById("result");
 
+
 let stats = document.getElementById("stats");
 
 coin.addEventListener("click", function () {
-   
+  
     flipCoin();
     reset()
+   
+   
 });
 
 
@@ -23,7 +26,7 @@ function flipCoin ( ){
     let repetions = document.getElementById("coinFlips").value;
 
     let result;
-    //console.log(tails);
+    if(repetions > 0){
     for (let i = 0; i < repetions ; i++) {
    
         let toss = Math.floor(Math.random() * 2);
@@ -55,26 +58,36 @@ function flipCoin ( ){
         
     }
     graph(heads, tails);
+    }
+    
 }
 
 //implement statistic graphs
 function reset () {
     tails = 0;                                                 
     heads = 0;
-    //stats.innerHTML = ``;
+   
 }
 
+
+/*
+
+second result not showing
+validation
+clean html
+
+*/
 
 //charts
 //let wow = 20;
 function graph(heads, tails){
-
+  const flip = [ 'Tails' , 'Heads'];
 
   const barChartOptions = {
     
     series: [
       {
-        data: [heads, tails],
+        data: [tails, heads],
       },
     ],
     chart: {
@@ -100,7 +113,7 @@ function graph(heads, tails){
       show: false,
     },
     xaxis: {
-      categories: ['Heads', 'Tails'],
+      categories: [flip[0], flip[1] ],
     },
     yaxis: {
       
