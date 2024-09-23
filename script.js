@@ -1,10 +1,10 @@
 let coin = document.getElementById("flip-coin");
-let flip = document.getElementById("flip-again");
-let resetEl = document.getElementById("reset");
+//let flip = document.getElementById("flip-again");
+//let resetEl = document.getElementById("reset");
 let tossResult = document.getElementById("result");
 
 
-let stats = document.getElementById("stats");
+//let stats = document.getElementById("stats");
 
 coin.addEventListener("click", function () {
   
@@ -52,8 +52,7 @@ function flipCoin ( ){
           totalE.innerHTML = `Total: ${total} `; 
           /* flip.innerHTML = `<button id="flip-again-btn">Want to Flip Again?</button>`;
         
-          flip.addEventListener("click", flipCoin);  */
-          
+          flip.addEventListener("click", flipCoin);  */   
       }
       graph(heads, tails);
      
@@ -61,7 +60,6 @@ function flipCoin ( ){
     
 }
 
-//implement statistic graphs
 function reset () {
     tails = 0;                                                 
     heads = 0;
@@ -78,7 +76,7 @@ clean html
 
 //charts
 function graph(heads, tails){
-  console.log(heads+ "  " + tails);
+  console.log(tails+ " graph " + heads);
   const flip = [ 'Tails' , 'Heads'];
 
   const barChartOptions = {
@@ -111,12 +109,15 @@ function graph(heads, tails){
       show: false,
     },
     xaxis: {
-      categories: [flip[0], flip[1] ],
+      categories: [flip[0], flip[1]],
     },
     yaxis: {
       
     },
   };
+
+  //clean element
+  document.querySelector('#bar-chart').innerHTML = ``;
   const barChart = new ApexCharts(
     document.querySelector('#bar-chart'),
     barChartOptions

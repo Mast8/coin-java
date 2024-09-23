@@ -2,7 +2,10 @@ body {
     margin: 50px;
     font-family: Poppins;
     background-color: #202020;
-    
+}
+
+label {
+    color: white;
 }
 
 #h1  {
