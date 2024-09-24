@@ -103,10 +103,10 @@ function graph(heads, tails){
       },
     },
     dataLabels: {
-      enabled: false,
+      enabled: true,
     },
     legend: {
-      show: false,
+      show: true,
     },
     xaxis: {
       categories: [flip[0], flip[1]],

@@ -19,6 +19,11 @@ label {
     color: lightgrey;
 }
 
+.coinImg {
+    cursor: pointer;
+    border-radius: 5px;
+}
+
 
 .grid {
     display: grid;
