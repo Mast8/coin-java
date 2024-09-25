@@ -1,10 +1,8 @@
 let coin = document.getElementById("flip-coin");
-//let flip = document.getElementById("flip-again");
-//let resetEl = document.getElementById("reset");
+let flip = document.getElementById("flip-again");
+let resetEl = document.getElementById("reset");
 let tossResult = document.getElementById("result");
 
-
-//let stats = document.getElementById("stats");
 
 coin.addEventListener("click", function () {
   
@@ -43,6 +41,7 @@ function flipCoin ( ){
           
           let tailsPerc = Math.round(tails/total * 100);
           let headsPerc = Math.round(heads/total * 100);
+          
 
           if(repetions == 1 )
               tossResult.innerHTML = `It's ${result} `;
@@ -50,9 +49,9 @@ function flipCoin ( ){
           headsE.innerHTML = `Heads: ${heads} ${headsPerc}%`;
           tailsE.innerHTML = `Tails: ${tails}  ${tailsPerc}%`;
           totalE.innerHTML = `Total: ${total} `; 
-          /* flip.innerHTML = `<button id="flip-again-btn">Want to Flip Again?</button>`;
+          flip.innerHTML = `<button id="flip-again-btn">Double Flip ?</button>`;
         
-          flip.addEventListener("click", flipCoin);  */   
+          flip.addEventListener("click", flipCoin);  
       }
       graph(heads, tails);
      
@@ -67,10 +66,6 @@ function reset () {
 
 
 /*
-
-second result not showing
-
-clean html
 
 */
 
