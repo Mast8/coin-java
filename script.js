@@ -30,14 +30,14 @@ function flipCoin ( ){
           if (toss == 1) {
               tails++;
               result = "Tails";
-              coin.src = "images/Tails.png"
           } else {
               heads++;
-              coin.src = "images/Heads.png"
               result = "Heads";
           }
           let total = heads + tails;
         
+          
+          
           
           let tailsPerc = Math.round(tails/total * 100);
           let headsPerc = Math.round(heads/total * 100);
@@ -53,10 +53,17 @@ function flipCoin ( ){
         
           flip.addEventListener("click", flipCoin);  
       }
-      graph(heads, tails);
      
+      updateCoin(tails,heads);
+      graph(heads, tails);
     }
-    
+}
+
+function updateCoin(tails,heads){
+  if(tails > heads){
+    coin.src = "images/Tails.png"
+  }
+  else coin.src = "images/Heads.png"
 }
 
 function reset () {
