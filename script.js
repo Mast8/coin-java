@@ -63,7 +63,12 @@ function updateCoin(tails,heads){
   if(tails > heads){
     coin.src = "images/Tails.png"
   }
-  else coin.src = "images/Heads.png"
+  else {
+    if (tails == heads) 
+      coin.src = "images/Flip_coin.png"
+    else coin.src = "images/Heads.png"
+  }
+
 }
 
 function reset () {
