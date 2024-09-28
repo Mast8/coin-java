@@ -43,9 +43,9 @@ function flipCoin ( ){
           let headsPerc = Math.round(heads/total * 100);
           
 
-          if(repetions == 1 )
+          /* if(repetions == 1 )
               tossResult.innerHTML = `It's ${result} `;
-          else tossResult.innerHTML = ``;
+          else tossResult.innerHTML = ``; */
           headsE.innerHTML = `Heads: ${heads} ${headsPerc}%`;
           tailsE.innerHTML = `Tails: ${tails}  ${tailsPerc}%`;
           totalE.innerHTML = `Total: ${total} `; 
@@ -57,16 +57,19 @@ function flipCoin ( ){
       updateCoin(tails,heads);
       graph(heads, tails);
     }
+    else alert("Please enter the number of repetitions")
 }
 
 function updateCoin(tails,heads){
   if(tails > heads){
     coin.src = "images/Tails.png"
+    tossResult.innerHTML = `More Tails `;
   }
   else {
     if (tails == heads) 
       coin.src = "images/Flip_coin.png"
     else coin.src = "images/Heads.png"
+          tossResult.innerHTML = `More Heads `;
   }
 
 }
