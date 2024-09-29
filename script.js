@@ -66,10 +66,14 @@ function updateCoin(tails,heads){
     tossResult.innerHTML = `More Tails `;
   }
   else {
-    if (tails == heads) 
+    if (tails == heads) {
       coin.src = "images/Flip_coin.png"
-    else coin.src = "images/Heads.png"
-          tossResult.innerHTML = `More Heads `;
+      tossResult.innerHTML = `Draw`;
+    }
+    else {
+      coin.src = "images/Heads.png"
+      tossResult.innerHTML = `More Heads `;
+    }
   }
 
 }
