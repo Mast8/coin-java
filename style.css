@@ -30,6 +30,8 @@ label {
     justify-content: center;
 }
 
+
+
 footer {
     color: gray;
     font-size: small;
@@ -65,18 +67,20 @@ footer {
 
 #flip-again-btn {
     text-align: center;
-    background-color: transparent;
-    color: white;
+    background-color: white;
+    cursor: pointer;
+    color: #ac8a24;
     border: 1px solid lightgray;
     border-radius: 20px;
     padding: 10px 50px;
     font-family: Poppins;
+    font-weight: bold;
 }
 
 #flip-again-btn:hover {
     background-color: #e1b530;
     color: rgb(56, 56, 56);
-    border: none;
+    
 }
 
 a {

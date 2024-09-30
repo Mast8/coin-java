@@ -37,19 +37,14 @@ function flipCoin ( ){
           let total = heads + tails;
         
           
-          
-          
           let tailsPerc = Math.round(tails/total * 100);
           let headsPerc = Math.round(heads/total * 100);
           
 
-          /* if(repetions == 1 )
-              tossResult.innerHTML = `It's ${result} `;
-          else tossResult.innerHTML = ``; */
           headsE.innerHTML = `Heads: ${heads} ${headsPerc}%`;
           tailsE.innerHTML = `Tails: ${tails}  ${tailsPerc}%`;
           totalE.innerHTML = `Total: ${total} `; 
-          flip.innerHTML = `<button id="flip-again-btn">Double Flip ?</button>`;
+          flip.innerHTML = `<button id="flip-again-btn">Increase Flip ?</button>`;
         
           flip.addEventListener("click", flipCoin);  
       }
