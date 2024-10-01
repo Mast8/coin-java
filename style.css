@@ -5,7 +5,10 @@ body {
 }
 
 label {
+    display: flex;
     color: white;
+    text-align: center;
+    justify-content: center;
 }
 
 #h1  {
@@ -69,7 +72,7 @@ footer {
     text-align: center;
     background-color: white;
     cursor: pointer;
-    color: #ac8a24;
+    color: #202020;
     border: 1px solid lightgray;
     border-radius: 20px;
     padding: 10px 50px;
