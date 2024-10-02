@@ -14,7 +14,7 @@ coin.addEventListener("click", function () {
  let tails = 0;                                                 
  let heads = 0;
 
-function flipCoin ( ){
+/* function flipCoin ( ){
    
     let tailsE = document.getElementById("tail");
     let headsE = document.getElementById("head");
@@ -53,6 +53,60 @@ function flipCoin ( ){
       graph(heads, tails);
     }
     else alert("Please enter the number of repetitions")
+} */
+
+function flipCoin ( ){ 
+   
+  let tailsE = document.getElementById("tail");
+  let headsE = document.getElementById("head");
+  let totalE = document.getElementById("total");
+  let repetions = document.getElementById("coinFlips").value;
+
+
+  let tailsA = [];                                                 
+  let headsA = [];
+  let result;
+  let series = 2;
+  if(repetions > 0){
+    for (let j = 0; j < series ; j++) {
+      for (let i = 0; i < repetions ; i++) {
+    
+          let toss = Math.floor(Math.random() * 2);
+          
+          if (toss == 1) {
+              tails++;
+              result = "Tails";
+          } else {
+              heads++;
+              result = "Heads";
+          }
+          let total = heads + tails;
+        
+          
+          let tailsPerc = Math.round(tails/total * 100);
+          let headsPerc = Math.round(heads/total * 100);
+          
+
+          headsE.innerHTML = `Heads: ${heads} ${headsPerc}%`;
+          tailsE.innerHTML = `Tails: ${tails}  ${tailsPerc}%`;
+          totalE.innerHTML = `Total: ${total} `; 
+          flip.innerHTML = `<button id="flip-again-btn">Increase Flip ?</button>`;
+        
+          flip.addEventListener("click", flipCoin);  
+      }
+      console.log(tails, heads);
+      tailsA[j] = tails;
+      headsA[j] = heads;
+      heads= 0;
+      tails = 0;
+      graph(headsA[j], tailsA[j]);
+    }
+    
+    console.log(tailsA, headsA);
+    updateCoin(tails,heads);
+    
+  }
+  else alert("Please enter the number of repetitions")
 }
 
 function updateCoin(tails,heads){
@@ -77,11 +131,6 @@ function reset () {
     tails = 0;                                                 
     heads = 0;
 }
-
-
-/*
-
-*/
 
 //charts
 function graph(heads, tails){
