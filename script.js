@@ -65,8 +65,8 @@ function flipCoin ( ){
 
   let tailsA = [];                                                 
   let headsA = [];
-  let result;
-  let series = 2;
+
+  let series = 5;
   if(repetions > 0){
     for (let j = 0; j < series ; j++) {
       for (let i = 0; i < repetions ; i++) {
@@ -75,10 +75,10 @@ function flipCoin ( ){
           
           if (toss == 1) {
               tails++;
-              result = "Tails";
+             
           } else {
               heads++;
-              result = "Heads";
+              
           }
           let total = heads + tails;
         
@@ -97,12 +97,11 @@ function flipCoin ( ){
       console.log(tails, heads);
       tailsA[j] = tails;
       headsA[j] = heads;
-      heads= 0;
-      tails = 0;
-      graph(headsA[j], tailsA[j]);
+      reset();
+      //graph(headsA[j], tailsA[j]);
     }
-    
-    console.log(tailsA, headsA);
+    graphLine(headsA);
+    //graphLine(tailsA);
     updateCoin(tails,heads);
     
   }
@@ -133,7 +132,7 @@ function reset () {
 }
 
 //charts
-function graph(heads, tails){
+/* function graph(heads, tails){
   console.log(tails+ " graph " + heads);
   const flip = [ 'Tails' , 'Heads'];
 
@@ -175,9 +174,61 @@ function graph(heads, tails){
   };
 
   //clean element
-  document.querySelector('#bar-chart').innerHTML = ``;
+  //document.querySelector('.bar-chart').innerHTML = ``;
   const barChart = new ApexCharts(
-    document.querySelector('#bar-chart'),
+    document.querySelector('.bar-chart'),
+    barChartOptions
+  );
+
+  barChart.render();
+} */
+
+function graphLine(data){
+  
+  //const flip = [ 'Tails' , 'Heads'];
+
+  const barChartOptions = {
+    
+    series: [
+      {
+        data: data
+      },
+      
+    ],
+    chart: {
+      type: 'line',
+      height: 350,
+      toolbar: {
+        show: false,
+      },
+    },
+    colors: ['#246dec', '#cc3c43'],
+    plotOptions: {
+      bar: {
+        distributed: true,
+        borderRadius: 4,
+        horizontal: false,
+        columnWidth: '40%',
+      },
+    },
+    dataLabels: {
+      enabled: true,
+    },
+    legend: {
+      show: true,
+    },
+    xaxis: {
+      
+    },
+    yaxis: {
+      
+    },
+  };
+
+  //clean element
+  document.querySelector('.bar-chart').innerHTML = ``;
+  const barChart = new ApexCharts(
+    document.querySelector('.bar-chart'),
     barChartOptions
   );
 
