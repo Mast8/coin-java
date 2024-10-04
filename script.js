@@ -61,13 +61,14 @@ function flipCoin ( ){
   let headsE = document.getElementById("head");
   let totalE = document.getElementById("total");
   let repetions = document.getElementById("coinFlips").value;
-
+  let series = document.getElementById("series").value;
 
   let tailsA = [];                                                 
   let headsA = [];
 
-  let series = 5;
-  if(repetions > 0){
+  //let series = 5;
+  if(repetions > 0 && series>0 ){
+    
     for (let j = 0; j < series ; j++) {
       for (let i = 0; i < repetions ; i++) {
     
@@ -100,8 +101,7 @@ function flipCoin ( ){
       reset();
       //graph(headsA[j], tailsA[j]);
     }
-    graphLine(headsA);
-    //graphLine(tailsA);
+    graphLine(tailsA, headsA);
     updateCoin(tails,heads);
     
   }
@@ -183,17 +183,18 @@ function reset () {
   barChart.render();
 } */
 
-function graphLine(data){
+function graphLine(data,dataY){
   
-  //const flip = [ 'Tails' , 'Heads'];
-
   const barChartOptions = {
     
     series: [
       {
-        data: data
+        data: data,
+        series: "tails"
       },
-      
+      {
+        data: dataY
+      },
     ],
     chart: {
       type: 'line',
