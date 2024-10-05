@@ -31,18 +31,22 @@
             <label for="coins">  Number of series
                 <input type="series" id="series" > 
             </label>
+            <label>Choose Graph</label>
+            <select id="graph">
+                <option value="line">Line</option>
+                <option value="bar">Bar</option>
+                
+            </select>
         </header>
 
         <div id="coin">
             <img class="coinImg" src="./images/Flip_coin.png" alt="coin" id="flip-coin">
             <div id="result"> </div>
-           
         </div>
     </main>
 
     
     <div class="charts">
-
         <div class="charts-card">
           <p class="chart-title"></p>
           <div class="bar-chart" id="bar-chart"></div>

@@ -62,6 +62,7 @@ function flipCoin ( ){
   let totalE = document.getElementById("total");
   let repetions = document.getElementById("coinFlips").value;
   let series = document.getElementById("series").value;
+  let graph = document.getElementById("graph").value;
 
   let tailsA = [];                                                 
   let headsA = [];
@@ -101,7 +102,17 @@ function flipCoin ( ){
       reset();
       //graph(headsA[j], tailsA[j]);
     }
-    graphLine(tailsA, headsA);
+
+    //graph for the slected graph
+    //console.log(graphBar);
+    graphLine(tailsA, headsA, graph);
+    /* if(graph == "line"){
+      graphLine(tailsA, headsA, graph);
+    } else {
+      //graph(tailsA, headsA, );
+    } */
+
+    
     updateCoin(tails,heads);
     
   }
@@ -132,7 +143,7 @@ function reset () {
 }
 
 //charts
-/* function graph(heads, tails){
+function graph(tails , heads){
   console.log(tails+ " graph " + heads);
   const flip = [ 'Tails' , 'Heads'];
 
@@ -181,23 +192,25 @@ function reset () {
   );
 
   barChart.render();
-} */
+}
 
-function graphLine(data,dataY){
+function graphLine(tails,heads, graph){
   
   const barChartOptions = {
     
     series: [
       {
-        data: data,
-        series: "tails"
+        data: tails,
+        name: "Tails",
       },
       {
-        data: dataY
+        data: heads,
+        name: "Heads",
       },
     ],
     chart: {
-      type: 'line',
+      type: graph,
+      /* type: 'line', */
       height: 350,
       toolbar: {
         show: false,
@@ -219,7 +232,7 @@ function graphLine(data,dataY){
       show: true,
     },
     xaxis: {
-      
+     
     },
     yaxis: {
       
